@@ -6,15 +6,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div id="canvas">
-		<svg>
-		</svg>
-		<div id="sliderContainer">
-			<input type="range" id=slider min="0" max="24" value="0">
-			<div id="slider-message">Slider Value: 50</div>
-			</div>
-	</div>
-
+	<container style="height: 100vh; width: 100vw; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: white;">
+	<div id="canvas"></div>
+	<div id="sliderContainer" style="margin-top: -11rem"><input type="range" id=slider min="0" max="24" value="0"></div>
+</container>
 	<script src="https://d3js.org/d3.v7.min.js"></script>
 	<script src = "script.js"></script>
 </body>
