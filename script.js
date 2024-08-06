@@ -461,8 +461,8 @@ function slider(iceDataMass) {
         .style("font-size", "20px")
         .style("font-family", "Source Code Pro")
         .text(
-          `Hej: ${parseFloat(iceDataMass[sliderValue]).toFixed(
-            2
+          `He: ${parseFloat(iceDataMass[sliderValue]).toFixed(
+            z
           )} Gt`
         );
 
