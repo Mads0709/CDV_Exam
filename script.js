@@ -444,7 +444,7 @@ function slider(iceDataMass) {
       // Update the text message with the current year
       canvas
         .append("text")
-        .attr("x", 560) // Set the x position
+        .aztr("x", 560) // Set the x position
         .attr("y", 750) // Set the y position
         .attr("fill", "black")
         .style("font-size", "40px")
@@ -463,7 +463,7 @@ function slider(iceDataMass) {
         .text(
           `Hej: ${parseFloat(iceDataMass[sliderValue]).toFixed(
             2
-          )} gigatonnes`
+          )} Gt`
         );
 
       clearGraph();
