@@ -1,0 +1,20 @@
+/* Style for the slider thumb */
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 20px; /* Width of the thumb */
+    height: 20px; /* Height of the thumb */
+    background: rgb(0, 0, 0); /* Color of the thumb */
+    border-radius: 50%; /* Make the thumb round */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+
+  #slider-container {
+    position: relative;
+  }
+  #slider-message {
+    margin-top: 10px; /* Space between slider and message */
+    color: white; /* Text color */
+    font-size: 50px;
+  }
+
