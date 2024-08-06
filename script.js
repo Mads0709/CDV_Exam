@@ -49,13 +49,16 @@ d3.json("iceberg_mass.json").then(function (data) {
   defineGradientOuterIceberg();
   headLine();
 
+  yearText();
+
   // first drawn text slider at 2001
   canvas
     .append("text")
-    .attr("x", 560) // Set the x position
-    .attr("y", 750) // Set the y position
+    .attr("x", 556) // Set the x position
+    .attr("y", 830) // Set the y position
     .attr("fill", "black")
-    .style("font-size", "40px")
+    .style("font-size", "30px")
+    .style("font-family", "Source Code Pro")
     .text(`${2001}`);
 
   canvas
@@ -81,13 +84,13 @@ d3.json("iceberg_mass.json").then(function (data) {
 
   drawGraph(iceDataMass, "white", 0, 1, "none");
   drawGraph(iceDataMass, "lightblue", 30, 0.5, "none");
-  drawWaves(20, 6);
+  drawWaves(22, 6);
   // Make bulb thermometer (empty), white fill buttom
   canvas
     .append("circle")
     .attr("r", 20)
     .attr("cx", 80 + 200 / 2)
-    .attr("cy", 355 + 150)
+    .attr("cy", 355 + 290)
     .style("fill", "#F1F1F1")
     .style("stroke", "#F1F1F1")
     .style("stroke-width", 1 + "px");
@@ -96,7 +99,7 @@ d3.json("iceberg_mass.json").then(function (data) {
 function headLine() {
   canvas
     .append("text")
-    .attr("x", 100) // Set the x position
+    .attr("x", 70) // Set the x position
     .attr("y", 100) // Set the y position
     .attr("fill", "black")
     .style("font-size", "28px")
@@ -105,12 +108,24 @@ function headLine() {
     .text("What happens to the icebergs when the seas change temperature?");
 }
 
+function yearText() {
+  // first drawn text slider at 2001
+  canvas
+    .append("text")
+    .attr("x", 550) // Set the x position
+    .attr("y", 710) // Set the y position
+    .attr("fill", "black")
+    .style("font-size", "15px")
+    .style("font-family", "Source Code Pro")
+    .text(`2001-2004`);
+}
+
 // iceberg image
 function iceberg() {
   canvas
     .append("image")
     .attr("xlink:href", "iceberg.png") // Path to local image
-    .attr("x", 100) // x position
+    .attr("x", 70) // x position
     .attr("y", 190) // y position
     .attr("width", 30) // width of the image
     .attr("height", 30); // height of the image
@@ -121,7 +136,7 @@ function waterDrop() {
   canvas
     .append("image")
     .attr("xlink:href", "water.png") // Path to local image
-    .attr("x", 100) // x position
+    .attr("x", 70) // x position
     .attr("y", 150) // y position
     .attr("width", 30) // width of the image
     .attr("height", 30); // height of the image
@@ -131,7 +146,7 @@ function waterDropText() {
   canvas
     .append("text")
     .attr("class", "textWater")
-    .attr("x", 130) // Set the x position
+    .attr("x", 134) // Set the x position
     .attr("y", 172) // Set the y position
     .attr("fill", "black")
     .style("font-size", "20px")
@@ -143,8 +158,8 @@ function happyPenguin() {
   canvas
     .append("image")
     .attr("xlink:href", "Pengo_happy.png") // Path to local image
-    .attr("x", 950) // x position
-    .attr("y", 390) // y position
+    .attr("x", 910) // x position
+    .attr("y", 520) // y position
     .attr("width", 100) // width of the image
     .attr("height", 100); // height of the image
 }
@@ -154,8 +169,8 @@ function neutralPenguin() {
     .append("image")
     .attr("class", "neutralPeng")
     .attr("xlink:href", "Pengo_neutral.png") // Path to local image
-    .attr("x", 950) // x position
-    .attr("y", 390) // y position
+    .attr("x", 910) // x position
+    .attr("y", 520) // y position
     .attr("width", 100) // width of the image
     .attr("height", 100); // height of the image
 }
@@ -165,15 +180,12 @@ function sadPenguin() {
     .append("image")
     .attr("class", "neutralPeng")
     .attr("xlink:href", "Pengo_sad.png") // Path to local image
-    .attr("x", 950) // x position
-    .attr("y", 390) // y position
+    .attr("x", 910) // x position
+    .attr("y", 520) // y position
     .attr("width", 100) // width of the image
     .attr("height", 100); // height of the image
 }
 
-var text = "";
-var text2 = "";
-var text3 = "";
 var hidden = "hidden";
 var visible = "visible";
 var vis = false;
@@ -184,8 +196,8 @@ function bouble() {
     .append("image")
     .attr("xlink:href", "speakingBouble.png") // Path to your local image
     .attr("class", `bouble`)
-    .attr("x", 1020) // x position
-    .attr("y", 230) // y position
+    .attr("x", 940) // x position
+    .attr("y", 360) // y position
     .attr("width", 150) // width of the image
     .attr("height", 150) // height of the image
     .style("visibility", hidden);
@@ -196,16 +208,135 @@ function bouble() {
     .attr("y", 430) // Set the y position
     .attr("fill", "black")
     .style("font-size", "10px")
+    .style("font-weight", "bold")
     .style("opacity", 0); // Start with opacity 0
 
   switch (sliderValue) {
+    case 0:
+      var textFirst = "2001 is the year";
+      var text2First = "with the coldest";
+      var text3First = "sea temperature";
+      textElement
+        .append("tspan")
+        .attr("x", 962)
+        .attr("y", 405)
+        .text(textFirst)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 962)
+        .attr("y", 420)
+        .text(text2First)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 962)
+        .attr("y", 435)
+        .text(text3First)
+        .style("font-family", "Source Code Pro");
+      bouble.style("visibility", visible);
+
+      textElement
+        .transition() // Start a transition
+        .duration(1000) // Transition duration in milliseconds
+        .style("opacity", 1) // End with opacity 1
+        .on("end", function () {});
+      break;
+      break;
+
     case 1:
-      text = "2002 is the only year where";
-      text2 = "the ice on the South Pole";
-      text3 = "is growing";
-      textElement.append("tspan").attr("x", 1040).attr("y", 270).text(text);
-      textElement.append("tspan").attr("x", 1040).attr("y", 285).text(text2);
-      textElement.append("tspan").attr("x", 1040).attr("y", 300).text(text3);
+      text = "2002 is the only";
+      text2 = "year where the";
+      text3 = "ice on the South ";
+      text4 = "Pole is growing";
+      textElement
+        .append("tspan")
+        .attr("x", 965)
+        .attr("y", 400)
+        .text(text)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 965)
+        .attr("y", 415)
+        .text(text2)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 965)
+        .attr("y", 430)
+        .text(text3)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 965)
+        .attr("y", 445)
+        .text(text4)
+        .style("font-family", "Source Code Pro");
+      bouble.style("visibility", visible);
+
+      textElement
+        .transition() // Start a transition
+        .duration(1000) // Transition duration in milliseconds
+        .style("opacity", 1) // End with opacity 1
+        .on("end", function () {});
+      break;
+
+    case 9:
+      text = "The ice on the";
+      text2 = "South Pole decreases";
+      text3 = "rapidly";
+      textElement
+        .append("tspan")
+        .attr("x", 962)
+        .attr("y", 405)
+        .text(text)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 962)
+        .attr("y", 420)
+        .text(text2)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 962)
+        .attr("y", 435)
+        .text(text3)
+        .style("font-family", "Source Code Pro");
+
+      bouble.style("visibility", visible);
+
+      textElement
+        .transition() // Start a transition
+        .duration(1000) // Transition duration in milliseconds
+        .style("opacity", 1) // End with opacity 1
+        .on("end", function () {});
+      break;
+
+    case 15:
+      text = "The iceberg melts";
+      text2 = "and the sea";
+      text3 = "temperature rises";
+      textElement
+        .append("tspan")
+        .attr("x", 962)
+        .attr("y", 405)
+        .text(text)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 962)
+        .attr("y", 420)
+        .text(text2)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 962)
+        .attr("y", 435)
+        .text(text3)
+        .style("font-family", "Source Code Pro");
+
       bouble.style("visibility", visible);
 
       textElement
@@ -215,20 +346,41 @@ function bouble() {
         .on("end", function () {});
       break;
     case 23:
-      var textLast = "A total of 2631 gigatonnes";
-      var text2Last = "of ice has been lost at the";
-      var text3Last = "South Pole";
-      textElement.append("tspan").attr("x", 1040).attr("y", 270).text(textLast);
+      var textLast = "A total of 2631";
+      var text2Last = "gigatonnes of ice";
+      var text3Last = "has been lost at";
+      var text4Last = "the South Pole";
+      var text5Last = "since 2001";
       textElement
         .append("tspan")
-        .attr("x", 1040)
-        .attr("y", 285)
-        .text(text2Last);
+        .attr("x", 965)
+        .attr("y", 397)
+        .text(textLast)
+        .style("font-family", "Source Code Pro");
       textElement
         .append("tspan")
-        .attr("x", 1040)
-        .attr("y", 300)
-        .text(text3Last);
+        .attr("x", 965)
+        .attr("y", 412)
+        .text(text2Last)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 965)
+        .attr("y", 427)
+        .text(text3Last)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 965)
+        .attr("y", 442)
+        .text(text4Last)
+        .style("font-family", "Source Code Pro");
+      textElement
+        .append("tspan")
+        .attr("x", 965)
+        .attr("y", 457)
+        .text(text5Last)
+        .style("font-family", "Source Code Pro");
       bouble.style("visibility", visible);
 
       textElement
@@ -246,7 +398,7 @@ function bouble() {
   }
 }
 
-var cy = 420;
+var cy = 500;
 function drawCircle() {
   // Define the gradient
   var gradient = canvas
@@ -277,7 +429,7 @@ function drawCircle() {
     .append("circle")
     .attr("cx", width / 2)
     .attr("cy", cy)
-    .attr("r", 200)
+    .attr("r", 350)
     .attr("fill", "url(#gradient)");
 }
 
@@ -308,7 +460,7 @@ function drawGraph(iceDataMass, color, iceHeight, opacity, stroke) {
     .domain(d3.extent(data, (d) => d.x))
     .range([300, width - 300]);
 
-  var y = d3.scaleLinear().domain([-90, 100]).range([height, 150]);
+  var y = d3.scaleLinear().domain([-50, 100]).range([height, 220]);
 
   // Set up line generator
   var line = d3.line();
@@ -364,8 +516,8 @@ function drawWaves(waveHeight, waveLow) {
 
   var y = d3
     .scaleLinear()
-    .domain([-80, 100])
-    .range([height + 100, 55]);
+    .domain([-80, 140])
+    .range([height + 100, 155]);
 
   // Set up line generator
   var line = d3.line();
@@ -408,7 +560,7 @@ function slider(iceDataMass) {
     .style("position", "absolute") // Ensure positioning is enabled
     .style("-webkit-appearance", "none")
     .style("left", "100px") // Adjust left position
-    .style("top", "870px") // Adjust top position if needed
+    .style("top", "970px") // Adjust top position if needed
     .style("width", "1000px")
     .style("height", "1px")
     .style("background", "black") // Set the background color
@@ -439,15 +591,16 @@ function slider(iceDataMass) {
 
       // Clear previous text
       canvas.selectAll("text").remove(); // removes text for next time to be drawn for each input
-
+      yearText();
       waterDropText();
       // Update the text message with the current year
       canvas
         .append("text")
-        .attr("x", 560) // Set the x position
-        .attr("y", 750) // Set the y position
+        .attr("x", 556) // Set the x position
+        .attr("y", 830) // Set the y position
         .attr("fill", "black")
-        .style("font-size", "40px")
+        .style("font-size", "30px")
+        .style("font-family", "Source Code Pro")
         .text(`${year}`);
 
       headLine();
@@ -499,14 +652,14 @@ function slider(iceDataMass) {
       thermometer();
       drawGraph(iceDataMass, "white", 0, 1, "none");
       drawGraph(iceDataMass, "lightblue", 30, opacity, "none");
-      drawWaves(20, 6);
+      drawWaves(22, 6);
 
       // Make bulb thermometer (empty), white fill
       canvas
         .append("circle")
         .attr("r", 20)
         .attr("cx", 80 + 200 / 2)
-        .attr("cy", 355 + 150)
+        .attr("cy", 355 + 290)
         .style("fill", "#F1F1F1")
         .style("stroke", "#F1F1F1")
         .style("stroke-width", 1 + "px");
@@ -622,7 +775,7 @@ function thermometer() {
       .append("circle")
       .attr("r", tubeWidth / 2)
       .attr("cx", thermometerWidth + 200 / 2)
-      .attr("cy", top_cy + 150)
+      .attr("cy", top_cy + 290)
       .style("fill", tubeFillColour)
       .style("stroke", tubeBorderColour)
       .style("stroke-width", tubeBorderWidth + "px");
@@ -631,7 +784,7 @@ function thermometer() {
     canvas
       .append("rect")
       .attr("x", thermometerWidth + 200 / 2 - tubeWidth / 2)
-      .attr("y", top_cy + 150)
+      .attr("y", top_cy + 290)
       .attr("height", bulb_cy - top_cy)
       .attr("width", tubeWidth)
       .style("shape-rendering", "crispEdges")
@@ -644,7 +797,7 @@ function thermometer() {
       .append("circle")
       .attr("r", tubeWidth / 2 - tubeBorderWidth / 2)
       .attr("cx", thermometerWidth + 200 / 2)
-      .attr("cy", top_cy + 150)
+      .attr("cy", top_cy + 290)
       .style("fill", tubeFillColour)
       .style("stroke", "none");
 
@@ -652,7 +805,7 @@ function thermometer() {
     canvas
       .append("rect")
       .attr("x", thermometerWidth + 200 / 2 - (tubeWidth - tubeBorderWidth) / 2)
-      .attr("y", top_cy + 150)
+      .attr("y", top_cy + 290)
       .attr("height", bulb_cy - top_cy)
       .attr("width", tubeWidth - tubeBorderWidth)
       .style("shape-rendering", "crispEdges")
@@ -683,7 +836,7 @@ function thermometer() {
         "transform",
         "translate(" +
           (thermometerWidth + 200 / 2 + tubeWidth / 2 + 10) +
-          ",150)"
+          ",290)"
       )
       .call(axis);
 
@@ -726,7 +879,7 @@ function thermometer() {
         .append("rect")
         .attr("class", "mercury")
         .attr("x", thermometerWidth + 200 / 2 - (tubeWidth - 10) / 2)
-        .attr("y", tubeFill_top + 150)
+        .attr("y", tubeFill_top + 290)
         .attr("width", tubeWidth - 10)
         .attr("height", tubeFill_bottom - tubeFill_top)
         .style("shape-rendering", "crispEdges")
@@ -737,7 +890,7 @@ function thermometer() {
         .attr("class", "mercury")
         .attr("r", bulbRadius - 6)
         .attr("cx", bulb_cx + 140)
-        .attr("cy", bulb_cy + 150)
+        .attr("cy", bulb_cy + 290)
         .style("fill", mercuryColour)
         .style("stroke", mercuryColour)
         .style("stroke-width", "2px");
@@ -758,7 +911,7 @@ function thermometer() {
     canvas
       .append("text")
       .attr("class", "textWater")
-      .attr("x", 335) // Set the x position
+      .attr("x", 338) // Set the x position
       .attr("y", 172) // Set the y position
       .attr("fill", "black")
       .style("font-size", "20px")
