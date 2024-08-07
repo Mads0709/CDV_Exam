@@ -96,13 +96,15 @@ d3.json("iceberg_mass.json").then(function (data) {
 function headLine() {
   canvas
     .append("text")
-    .attr("x", 70) // Set the x position
+    .attr("x", 55) // Set the x position
     .attr("y", 100) // Set the y position
     .attr("fill", "black")
-    .style("font-size", "28px")
+    .style("font-size", "24px")
     .style("font-weight", "bold")
     .style("font-family", "Source Code Pro")
-    .text("What happens to the icebergs when the seas change temperature?");
+    .text(
+      "What happens to the icebergs in Antarctica when the seas change temperature?"
+    );
 }
 
 function dataFrom() {
