@@ -49,8 +49,6 @@ d3.json("iceberg_mass.json").then(function (data) {
   defineGradientOuterIceberg();
   headLine();
 
-  yearText();
-
   // first drawn text slider at 2001
   canvas
     .append("text")
@@ -61,6 +59,7 @@ d3.json("iceberg_mass.json").then(function (data) {
     .style("font-family", "Source Code Pro")
     .text(`${2001}`);
 
+  dataFrom();
   canvas
     .append("text")
     .attr("x", 135) // Set the x position
@@ -108,16 +107,28 @@ function headLine() {
     .text("What happens to the icebergs when the seas change temperature?");
 }
 
-function yearText() {
-  // first drawn text slider at 2001
+function dataFrom() {
   canvas
     .append("text")
-    .attr("x", 550) // Set the x position
-    .attr("y", 710) // Set the y position
+    .attr("x", 750) // Set the x position
+    .attr("y", 870) // Set the y position
     .attr("fill", "black")
-    .style("font-size", "15px")
+    .style("font-size", "8px")
     .style("font-family", "Source Code Pro")
-    .text(`2001-2004`);
+    .text(
+      `Sea temperature from the climatereanalyzer: https://climatereanalyzer.org/clim/sst daily/`
+    );
+
+  canvas
+    .append("text")
+    .attr("x", 750) // Set the x position
+    .attr("y", 885) // Set the y position
+    .attr("fill", "black")
+    .style("font-size", "8px")
+    .style("font-family", "Source Code Pro")
+    .text(
+      `Mass of the iceberg from Nasa: https://climate.nasa.gov/vital-signs/ice-sheets/?intent=121`
+    );
 }
 
 // iceberg image
@@ -591,7 +602,7 @@ function slider(iceDataMass) {
 
       // Clear previous text
       canvas.selectAll("text").remove(); // removes text for next time to be drawn for each input
-      yearText();
+      dataFrom();
       waterDropText();
       // Update the text message with the current year
       canvas
