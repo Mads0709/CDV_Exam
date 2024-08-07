@@ -67,7 +67,7 @@ d3.json("iceberg_mass.json").then(function (data) {
     .attr("fill", "black")
     .style("font-size", "20px")
     .style("font-family", "Source Code Pro")
-    .text(`Mass of iceberg: ${parseFloat(iceDataMass[0]).toFixed(2)} Gt`);
+    .text(`Varying mass of the iceberg:`);
 
   waterDrop();
   waterDropText();
@@ -616,6 +616,13 @@ function slider(iceDataMass) {
       headLine();
       update(currentValue);
       spikeHeight += icebergSpikes(); // Update spike height
+      var text1 = `Varying mass of the iceberg: ${parseFloat(
+        iceDataMass[sliderValue]
+      ).toFixed(2)} Gt`;
+      var text2 = "Varying mass of the iceberg:";
+
+      if (sliderValue == 0) {
+      }
       canvas
         .append("text")
         .attr("x", 135) // Set the x position
@@ -623,11 +630,7 @@ function slider(iceDataMass) {
         .attr("fill", "black")
         .style("font-size", "20px")
         .style("font-family", "Source Code Pro")
-        .text(
-          `Mass of iceberg: ${parseFloat(iceDataMass[sliderValue]).toFixed(
-            2
-          )} Gt`
-        );
+        .text(sliderValue === 0 ? text2 : text1);
 
       clearGraph();
       if (
