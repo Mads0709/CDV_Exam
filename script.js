@@ -67,9 +67,7 @@ d3.json("iceberg_mass.json").then(function (data) {
     .attr("fill", "black")
     .style("font-size", "20px")
     .style("font-family", "Source Code Pro")
-    .text(
-      `Mass of iceberg: ${parseFloat(iceDataMass[0]).toFixed(2)} gigatonnes`
-    );
+    .text(`Mass of iceberg: ${parseFloat(iceDataMass[0]).toFixed(2)} Gt`);
 
   waterDrop();
   waterDropText();
@@ -568,13 +566,14 @@ function slider(iceDataMass) {
 
   // input changes the iceberg
   d3.select("#slider")
-    .style("position", "absolute") // Ensure positioning is enabled
+    // .style("position", "absolute") // Ensure positioning is enabled
     .style("-webkit-appearance", "none")
     .style("left", "100px") // Adjust left position
     .style("top", "970px") // Adjust top position if needed
     .style("width", "1000px")
     .style("height", "1px")
     .style("background", "black") // Set the background color
+    .style("color", "black") // Set the color to black
     .style("outline", "none") // Remove outline
     .style("opacity", "1") // Set opacity
     .property("min", 0) // Set the minimum slider value
@@ -627,7 +626,7 @@ function slider(iceDataMass) {
         .text(
           `Mass of iceberg: ${parseFloat(iceDataMass[sliderValue]).toFixed(
             2
-          )} gigatonnes`
+          )} Gt`
         );
 
       clearGraph();
