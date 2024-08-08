@@ -60,6 +60,7 @@ d3.json("iceberg_mass.json").then(function (data) {
     .text(`${2001}`);
 
   dataFrom();
+  /*
   canvas
     .append("text")
     .attr("x", 135) // Set the x position
@@ -68,10 +69,10 @@ d3.json("iceberg_mass.json").then(function (data) {
     .style("font-size", "20px")
     .style("font-family", "Source Code Pro")
     .text(`Varying mass of the iceberg:`);
-
-  waterDrop();
-  waterDropText();
-  iceberg();
+*/
+  // waterDrop();
+  // waterDropText();
+  // iceberg();
   happyPenguin();
   bouble();
   thermometer();
@@ -97,7 +98,7 @@ function headLine() {
   canvas
     .append("text")
     .attr("x", 55) // Set the x position
-    .attr("y", 100) // Set the y position
+    .attr("y", 125) // Set the y position
     .attr("fill", "black")
     .style("font-size", "24px")
     .style("font-weight", "bold")
@@ -130,7 +131,7 @@ function dataFrom() {
       `Mass of the iceberg from Nasa: https://climate.nasa.gov/vital-signs/ice-sheets/?intent=121`
     );
 }
-
+/*
 // iceberg image
 function iceberg() {
   canvas
@@ -141,7 +142,8 @@ function iceberg() {
     .attr("width", 30) // width of the image
     .attr("height", 30); // height of the image
 }
-
+*/
+/*
 // waterdrop image
 function waterDrop() {
   canvas
@@ -152,7 +154,8 @@ function waterDrop() {
     .attr("width", 30) // width of the image
     .attr("height", 30); // height of the image
 }
-
+*/
+/*
 function waterDropText() {
   canvas
     .append("text")
@@ -164,6 +167,7 @@ function waterDropText() {
     .style("font-family", "Source Code Pro")
     .text(`Sea temperature:`);
 }
+*/
 
 function happyPenguin() {
   canvas
@@ -604,7 +608,7 @@ function slider(iceDataMass) {
       // Clear previous text
       canvas.selectAll("text").remove(); // removes text for next time to be drawn for each input
       dataFrom();
-      waterDropText();
+      // waterDropText();
       // Update the text message with the current year
       canvas
         .append("text")
@@ -618,6 +622,7 @@ function slider(iceDataMass) {
       headLine();
       update(currentValue);
       spikeHeight += icebergSpikes(); // Update spike height
+      /*
       var text1 = `Varying mass of the iceberg: ${parseFloat(
         iceDataMass[sliderValue]
       ).toFixed(2)} Gt`;
@@ -633,7 +638,7 @@ function slider(iceDataMass) {
         .style("font-size", "20px")
         .style("font-family", "Source Code Pro")
         .text(sliderValue === 0 ? text2 : text1);
-
+*/
       clearGraph();
       if (
         sliderValue == 6 ||
@@ -922,7 +927,7 @@ function thermometer() {
       currentData = dataTherm[index];
       updateThermometer(currentData);
     });
-
+/*
     canvas
       .append("text")
       .attr("class", "textWater")
@@ -932,5 +937,8 @@ function thermometer() {
       .style("font-size", "20px")
       .style("font-family", "Source Code Pro")
       .text(`${parseFloat(tempSea).toFixed(2)}°C`);
+      */
   });
+
 }
+
