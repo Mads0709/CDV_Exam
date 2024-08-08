@@ -60,16 +60,6 @@ d3.json("iceberg_mass.json").then(function (data) {
     .text(`${2001}`);
 
   dataFrom();
-  /*
-  canvas
-    .append("text")
-    .attr("x", 135) // Set the x position
-    .attr("y", 214) // Set the y position
-    .attr("fill", "black")
-    .style("font-size", "20px")
-    .style("font-family", "Source Code Pro")
-    .text(`Varying mass of the iceberg:`);
-*/
   thermoLegend();
   thermoText();
 
@@ -132,21 +122,9 @@ function dataFrom() {
     .style("font-size", "8px")
     .style("font-family", "Source Code Pro")
     .text(
-      `Mass of the iceberg from Nasa: https://climate.nasa.gov/vital-signs/ice-sheets/?intent=121`
+      `Mass of the iceberg from NASA: https://climate.nasa.gov/vital-signs/ice-sheets/?intent=121`
     );
 }
-/*
-// iceberg image
-function iceberg() {
-  canvas
-    .append("image")
-    .attr("xlink:href", "legend_mass.png") // Path to local image
-    .attr("x", 70) // x position
-    .attr("y", 190) // y position
-    .attr("width", 30) // width of the image
-    .attr("height", 30); // height of the image
-}
-*/
 
 // thermostat legend image
 function thermoLegend() {
@@ -158,7 +136,6 @@ function thermoLegend() {
     .attr("width", 80) // width of the image
     .attr("height", 80); // height of the image
 }
-
 
 function thermoText() {
   canvas
@@ -182,7 +159,6 @@ function massLegend() {
     .attr("height", 100); // height of the image
 }
 
-
 function massText() {
   canvas
     .append("text")
@@ -194,10 +170,6 @@ function massText() {
     .style("font-family", "Source Code Pro")
     .text(`Amount of ice on Antarctica`);
 }
-
-
-
-
 
 function happyPenguin() {
   canvas
@@ -958,7 +930,7 @@ function thermometer() {
       currentData = dataTherm[index];
       updateThermometer(currentData);
     });
-/*
+    /*
     canvas
       .append("text")
       .attr("class", "textWater")
@@ -970,6 +942,4 @@ function thermometer() {
       .text(`${parseFloat(tempSea).toFixed(2)}°C`);
       */
   });
-
 }
-
