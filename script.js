@@ -70,8 +70,12 @@ d3.json("iceberg_mass.json").then(function (data) {
     .style("font-family", "Source Code Pro")
     .text(`Varying mass of the iceberg:`);
 */
-  // waterDrop();
-  // waterDropText();
+  thermoLegend();
+  thermoText();
+
+  massLegend();
+  massText();
+
   // iceberg();
   happyPenguin();
   bouble();
@@ -136,38 +140,64 @@ function dataFrom() {
 function iceberg() {
   canvas
     .append("image")
-    .attr("xlink:href", "iceberg.png") // Path to local image
+    .attr("xlink:href", "legend_mass.png") // Path to local image
     .attr("x", 70) // x position
     .attr("y", 190) // y position
     .attr("width", 30) // width of the image
     .attr("height", 30); // height of the image
 }
 */
-/*
-// waterdrop image
-function waterDrop() {
+
+// thermostat legend image
+function thermoLegend() {
   canvas
     .append("image")
-    .attr("xlink:href", "water.png") // Path to local image
-    .attr("x", 70) // x position
+    .attr("xlink:href", "legend_thermo.png") // Path to local image
+    .attr("x", 335) // x position
     .attr("y", 150) // y position
-    .attr("width", 30) // width of the image
-    .attr("height", 30); // height of the image
+    .attr("width", 80) // width of the image
+    .attr("height", 80); // height of the image
 }
-*/
-/*
-function waterDropText() {
+
+
+function thermoText() {
   canvas
     .append("text")
     .attr("class", "textWater")
-    .attr("x", 134) // Set the x position
-    .attr("y", 172) // Set the y position
+    .attr("x", 100) // Set the x position
+    .attr("y", 200) // Set the y position
     .attr("fill", "black")
-    .style("font-size", "20px")
+    .style("font-size", "18px")
     .style("font-family", "Source Code Pro")
-    .text(`Sea temperature:`);
+    .text(`Average sea temperature`);
 }
-*/
+
+function massLegend() {
+  canvas
+    .append("image")
+    .attr("xlink:href", "legend_mass.png") // Path to local image
+    .attr("x", 400) // x position
+    .attr("y", 205) // y position
+    .attr("width", 100) // width of the image
+    .attr("height", 100); // height of the image
+}
+
+
+function massText() {
+  canvas
+    .append("text")
+    .attr("class", "textWater")
+    .attr("x", 100) // Set the x position
+    .attr("y", 260) // Set the y position
+    .attr("fill", "black")
+    .style("font-size", "18px")
+    .style("font-family", "Source Code Pro")
+    .text(`Amount of ice on Antarctica`);
+}
+
+
+
+
 
 function happyPenguin() {
   canvas
@@ -608,7 +638,8 @@ function slider(iceDataMass) {
       // Clear previous text
       canvas.selectAll("text").remove(); // removes text for next time to be drawn for each input
       dataFrom();
-      // waterDropText();
+      thermoText();
+      massText();
       // Update the text message with the current year
       canvas
         .append("text")
